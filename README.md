@@ -68,3 +68,8 @@ tslint.json
  - exports => RouterModule
  - routes => `[{ path: '', component: Component, }]`
  - component => `<router-outlet></router-outlet>`
+    - router-outlet 等同於 ng-view，不是 component，為 router 顯示區域
+
+# Web Memory Api
+ 
+ - npm install angular-in-memory-web-api --save
