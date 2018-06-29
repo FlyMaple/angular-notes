@@ -1,21 +1,22 @@
 import { NgModule } from '@angular/core';
-// import { CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
+import { HookTestModule } from './hook-test/hook-test.module';
 
-import { HeroesComponent } from './heroes/heroes.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: '/dashboard', pathMatch: 'full', },
-    { path: 'dashboard', component: DashboardComponent, },
-    { path: 'heroes', component: HeroesComponent, },
-    { path: 'detail/:id', component: HeroDetailComponent }
+    { path: '', redirectTo: '', pathMatch: 'full' },
+    { path: 'customers', loadChildren: './customers/customers.module#CustomersModule' },
+    { path: 'orders', loadChildren: './orders/orders.module#OrdersModule' },
+    { path: 'hero', loadChildren: './hero/hero.module#HeroModule' },
+    { path: 'hook-test', loadChildren: './hook-test/hook-test.module#HookTestModule' },
+    { path: 'dynamic-component', loadChildren: './dynamic-component/dynamic-component.module#DynamicComponentModule', },
+    { path: 'attribute-directive', loadChildren: './attribute-directive/attribute-directive.module#AttributeDirectiveModule', },
 ];
 
 @NgModule({
     imports: [
-        // CommonModule
+        CommonModule,
         RouterModule.forRoot(routes)
     ],
     exports: [
