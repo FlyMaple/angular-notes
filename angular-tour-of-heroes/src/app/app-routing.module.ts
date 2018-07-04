@@ -12,6 +12,8 @@ const routes: Routes = [
     { path: 'hook-test', loadChildren: './hook-test/hook-test.module#HookTestModule' },
     { path: 'dynamic-component', loadChildren: './dynamic-component/dynamic-component.module#DynamicComponentModule', },
     { path: 'attribute-directive', loadChildren: './attribute-directive/attribute-directive.module#AttributeDirectiveModule', },
+    { path: 'structure-directive', loadChildren: './structure-directive/structure-directive.module#StructureDirectiveModule' },
+    { path: 'pipe-demo', loadChildren: './pipe-demo/pipe-demo.module#PipeDemoModule', },
 ];
 
 @NgModule({

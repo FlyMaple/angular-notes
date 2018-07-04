@@ -11,6 +11,8 @@
     {{title}}
 </h1>
 
+<button routerLink="/pipe-demo">Pipe</button>
+<button routerLink="/structure-directive">Structure Directive</button>
 <button routerLink="/attribute-directive">Attribute Directive</button>
 <button routerLink="/dynamic-component">Dynamic Component</button>
 <button routerLink="/hook-test">Hook</button>
@@ -18,6 +20,13 @@
 <button routerLink="/customers">Customers</button>
 <button routerLink="/orders">Orders</button>
 <button routerLink="">Home</button>
+
+<div>
+    {{ '12345' | kuso: ' @ ' }}
+</div>
+<div>
+    {{ '12345' | yoyo }}
+</div>
 
 <router-outlet></router-outlet>
 <app-messages></app-messages>

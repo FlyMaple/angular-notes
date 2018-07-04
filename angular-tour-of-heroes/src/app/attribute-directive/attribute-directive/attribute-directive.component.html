@@ -1,7 +1,12 @@
 <p>
     attribute-directive works!
 </p>
-<div appHighlight>
+<div>
+    <input type="radio" name="colors" (click)="color='lightgreen'">Green
+    <input type="radio" name="colors" (click)="color='yellow'">Yellow
+    <input type="radio" name="colors" (click)="color='cyan'">Cyan
+</div>
+<div appHighlight [bgColor]="color" [fontColor]="'#fff'">
     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus, consectetur. Fuga error aperiam eos ullam sapiente
     impedit quidem saepe, deleniti vero natus ab nostrum animi deserunt accusamus illum sunt minus.
 </div>

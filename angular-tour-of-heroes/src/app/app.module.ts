@@ -13,26 +13,33 @@ import { AppRoutingModule } from './app-routing.module';
 import { CustomerDashboardModule } from './customer-dashboard/customer-dashboard.module';
 import { HookTestModule } from './hook-test/hook-test.module';
 import { TestComponent } from './test/test.component';
+import { PipeDemoModule } from './pipe-demo/pipe-demo.module';
+import { YoyoPipe } from './yoyo.pipe';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MessagesComponent,
-    TestComponent,
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    AppRoutingModule,
-    HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    ),
-    HeroModule,
-    CustomerDashboardModule,
-    HookTestModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        MessagesComponent,
+        TestComponent,
+        YoyoPipe
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        AppRoutingModule,
+        HttpClientModule,
+        HttpClientInMemoryWebApiModule.forRoot(
+            InMemoryDataService, { dataEncapsulation: false }
+        ),
+        HeroModule,
+        CustomerDashboardModule,
+        HookTestModule,
+        PipeDemoModule,
+    ],
+    exports: [
+    ],
+    providers: [
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
