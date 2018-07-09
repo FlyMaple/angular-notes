@@ -1,0 +1,94 @@
+<mat-toolbar class="demo-app-header" color="accent">
+    <mat-toolbar-row>
+        <button mat-icon-button (click)="toggleSideNav(sideNav)">
+            <mat-icon>{{sideNav.opened ? 'closed' : 'menu'}}</mat-icon>
+        </button>
+        <div>
+            <button mat-button (click)="toggleSideNav(sideNav)">toggle</button>
+            <button mat-button (click)="openSideNav(sideNav)">open</button>
+            <button mat-button (click)="closeSideNav(sideNav)">close</button>
+        </div>
+        <div class="toolbar-separator"></div>
+        <div>
+            <button mat-icon-button [matMenuTriggerFor]="messageMenu" #menuTrigger="matMenuTrigger">
+                <mat-icon>message</mat-icon>
+            </button>
+            <button mat-icon-button>
+                <mat-icon>exit_to_app</mat-icon>
+            </button>
+            <mat-menu #messageMenu="matMenu">
+                <button mat-menu-item>最新消息</button>
+                <button mat-menu-item>訊息設定</button>
+            </mat-menu>
+        </div>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+        <button mat-icon-button>
+            <mat-icon>home</mat-icon>
+        </button>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container class="demo-app-container">
+    <mat-sidenav class="demo-app-sidenav" #sideNav (opened)="onSideNavOpened()" (closed)="onSideNavClosed()">
+        <mat-nav-list>
+            <h3 matSubheader>
+                <mat-icon>chat_bubble</mat-icon>
+                新消息
+            </h3>
+            <mat-list-item *ngIf="optNew.selected">這是新消息</mat-list-item>
+            <mat-list-item *ngIf="optAds.selected">這是廣告息</mat-list-item>
+            <mat-divider></mat-divider>
+            <h3 matSubheader>
+                <mat-icon>settings</mat-icon>
+                訊息設定
+            </h3>
+            <mat-selection-list>
+                <mat-list-option [value]="1" #optNew>有新訊息通知我</mat-list-option>
+                <mat-list-option [value]="2" #optAds>顯示廣告訊息</mat-list-option>
+            </mat-selection-list>
+            <mat-list-item>
+                <p matLine>#optNew: {{optNew.selected}}</p>
+                <p matLine>#optAds: {{optAds.selected}}</p>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <h3 matSubheader>示範用頁面</h3>
+            <mat-list-item>問券調查</mat-list-item>
+            <mat-list-item>部落格</mat-list-item>
+            <mat-list-item>收件夾</mat-list-item>
+            <mat-list-item>
+                <p matLine>123</p>
+                <p matLine>abc</p>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <h3 matSubheader>其他頁面</h3>
+            <a routerLink="/dashboard/survey" mat-list-item>問券調查</a>
+            <a routerLink="/dashboard/blog" mat-list-item>部落格</a>
+            <a [routerLink]="['/', 'dashboard', 'inbox']" mat-list-item>收件夾</a>
+            <h3 matSubheader>好友訊息</h3>
+            <mat-list-item>
+                <img src="https://cdn.iconscout.com/public/images/icon/free/png-512/avatar-user-hacker-3830b32ad9e0802c-512x512.png" alt=""
+                    matListAvatar>
+                <p matLine>lorem</p>
+                <p matLine>something</p>
+                <button mat-icon-button>
+                    <mat-icon>chat</mat-icon>
+                </button>
+            </mat-list-item>
+            <mat-list-item>
+                <img src="https://cdn.iconscout.com/public/images/icon/free/png-512/avatar-user-hacker-3830b32ad9e0802c-512x512.png" alt=""
+                    matListAvatar>
+                <p matLine>lorem</p>
+                <p matLine>something</p>
+                <button mat-icon-button>
+                    <mat-icon>chat</mat-icon>
+                </button>
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-sidenav>
+    <!-- <mat-sidenav class="demo-app-sidenav" #sideNav2 mode="side" opened="true" position="end">
+        我是右邊選單
+    </mat-sidenav> -->
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
