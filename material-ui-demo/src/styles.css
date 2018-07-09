@@ -28,3 +28,8 @@ flex: 1 1 auto;
 .demo-app-sidenav {
     width: 200px;
   }
+
+.autocomplete-highlight {
+    font-weight: bold;
+    background: yellow;
+}

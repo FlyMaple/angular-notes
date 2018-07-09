@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule, MatButtonToggleModule, MatIconModule, MatRippleModule, MatSidenavModule, MatToolbarModule, MatListModule, MatMenuModule, MatStepperModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { MatButtonModule, MatButtonToggleModule, MatIconModule, MatRippleModule, MatSidenavModule, MatToolbarModule, MatListModule, MatMenuModule, MatStepperModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -17,7 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
         MatStepperModule,
         MatFormFieldModule,
         MatInputModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        MatAutocompleteModule
     ],
     exports: [
         MatButtonModule,
@@ -31,7 +32,8 @@ import { ReactiveFormsModule } from '@angular/forms';
         MatStepperModule,
         MatFormFieldModule,
         MatInputModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        MatAutocompleteModule
     ],
     declarations: []
 })
