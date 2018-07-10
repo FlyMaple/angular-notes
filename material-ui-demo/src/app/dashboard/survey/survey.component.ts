@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormGroupDirective, NgForm } from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material';
+import { ErrorStateMatcher, MatDatepickerInputEvent } from '@angular/material';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, switchMap, debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import * as moment from 'moment';
 // import { MatStepperIntl } from '@angular/material';
 
 // export class TwStepperIntl extends MatStepperIntl {
@@ -34,6 +35,9 @@ export class EarlyErrorStateMatcher implements ErrorStateMatcher {
 export class SurveyComponent implements OnInit {
     isLinear: boolean = true;
     majorTechList: any[];
+    startDate: moment.Moment;
+    minDate: moment.Moment;
+    maxDate: moment.Moment;
 
     // basicFormGroup: FormGroup;
     surveyForm: FormGroup;
@@ -51,6 +55,7 @@ export class SurveyComponent implements OnInit {
                 intro: new FormControl('', [Validators.required, Validators.minLength(10)]),
                 country: new FormControl(''),
                 majorTech: new FormControl('', Validators.required),
+                birthday: new FormControl({ value: '', disabled: true }),
             }),
         });
     }
@@ -79,6 +84,10 @@ export class SurveyComponent implements OnInit {
             name: 'Back-End',
             items: ['Java', 'C#', 'Python', 'Go'],
         }];
+
+        this.startDate = moment(new Date(1987, 11, 18));
+        this.minDate = moment(new Date(1987, 11, 1));
+        this.maxDate = moment(new Date(1987, 11, 20));
     }
 
     getCountries(test: string = ''): Observable<any> {
@@ -106,5 +115,17 @@ export class SurveyComponent implements OnInit {
         } else {
             return '';
         }
+    }
+
+    familyDayFilter(date: moment.Moment): boolean {
+        return date.day() === 5;
+    }
+
+    logDateInput(event: MatDatepickerInputEvent<moment.Moment>): void {
+        console.log(event)
+    }
+
+    logDateChange(event: MatDatepickerInputEvent<moment.Moment>): void {
+        console.log(event);
     }
 }
