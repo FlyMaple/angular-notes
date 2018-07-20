@@ -7,6 +7,9 @@ import { MainComponent } from './main/main.component';
 import { SharedMaterialModule } from '../shared-material.module';
 import { SurveyComponent } from './survey/survey.component';
 import { MatStepperIntl } from '@angular/material';
+import { BlogComponent } from './blog/blog.component';
+import { AddPostDialogComponent } from './blog/add-post-dialog/add-post-dialog.component';
+import { AddPostConfirmDialogComponent } from './blog/add-post-confirm-dialog/add-post-confirm-dialog.component';
 
 export class TwStepperIntl extends MatStepperIntl {
     optionalLabel = '非必填';
@@ -24,6 +27,10 @@ export class TwStepperIntl extends MatStepperIntl {
         provide: MatStepperIntl,
         useClass: TwStepperIntl,
     }],
-    declarations: [DashboardComponent, MainComponent, SurveyComponent]
+    entryComponents: [
+        AddPostDialogComponent,
+        AddPostConfirmDialogComponent,
+    ],
+    declarations: [DashboardComponent, MainComponent, SurveyComponent, BlogComponent, AddPostDialogComponent, AddPostConfirmDialogComponent]
 })
 export class DashboardModule { }

@@ -33,3 +33,12 @@ flex: 1 1 auto;
     font-weight: bold;
     background: yellow;
 }
+
+
+.blue-dropdown .mat-select-content {
+    background: rgba(0, 0, 255, 0.5);
+  }
+
+.z-backdrop {
+    background: rgba(0, 0, 0, .5);
+}

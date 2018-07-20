@@ -5,12 +5,19 @@
         <mat-step label="個人資訊" formGroupName="basicQuestions" [stepControl]="surveyForm.get('basicQuestions')" editable="false">
             <h4>提供個人資訊</h4>
             <div>
-                <mat-form-field>
-                    <input type="text" matInput name="name" placeholder="姓名" formControlName="name" required>
+                <mat-form-field [hideRequiredMarker]="true" color="accent">
+                    <input type="text" matInput name="name" formControlName="name" required>
+                    <mat-placeholder>
+                        <mat-icon>person</mat-icon>請輸入您的姓名
+                    </mat-placeholder>
+                    <mat-hint align="end">
+                        <mat-icon>list</mat-icon>test yoyo: {{ surveyForm.get('basicQuestions').get('name').value.length }}
+                    </mat-hint>
+                    <mat-error>請輸入</mat-error>
                 </mat-form-field>
             </div>
             <div>
-                <mat-form-field>
+                <mat-form-field floatLabel="never">
                     <input type="text" matInput name="nickname" placeholder="暱稱">
                 </mat-form-field>
             </div>
@@ -47,21 +54,77 @@
             </div>
             <div>
                 <mat-form-field>
-                    <input type="text" matInput name="birthday" placeholder="生日" [matDatepicker]="birthdayPicker" [min]="minDate" [max]="maxDate" [matDatepickerFilter]="familyDayFilter" (dateInput)="logDateInput($event)" (dateChange)="logDateChange($event)" formControlName="birthday">
+                    <input type="text" matInput name="birthday" placeholder="生日" [matDatepicker]="birthdayPicker" [min]="minDate" [max]="maxDate"
+                        [matDatepickerFilter]="familyDayFilter" (dateInput)="logDateInput($event)" (dateChange)="logDateChange($event)"
+                        formControlName="birthday">
                     <mat-datepicker-toggle [for]="birthdayPicker" matSuffix></mat-datepicker-toggle>
                     <mat-datepicker #birthdayPicker [startAt]="startDate" disabled="false" touchUi="true"></mat-datepicker>
                 </mat-form-field>
                 <button mat-raised-button color="accent" (click)="birthdayPicker.opened=true">Open</button>
             </div>
+            <div>
+                <mat-form-field>
+                    <mat-select formControlName="interest" placeholder="你的休閒愛好?" #selectInterest disableRipple panelClass="blue-dropdown" multiple>
+                        <mat-option [value]="undefined">無</mat-option>
+                        <mat-optgroup *ngFor="let major of majorTechList; let index = index" [label]="major.name" [disabled]="index === 1">
+                            <mat-option *ngFor="let item of major.items" [value]="item">{{item}}</mat-option>
+                        </mat-optgroup>
+                        <mat-optgroup label="其他">
+                            <mat-option *ngFor="let interest of interestList; let index = index" [value]="interest.name" [disabled]="index === 1">{{ interest.name }}</mat-option>
+                        </mat-optgroup>
+                        <mat-select-trigger>
+                            共選擇了 {{ selectInterest.selected.length }} 項興趣
+                        </mat-select-trigger>
+                    </mat-select>
+                </mat-form-field>
+                @@{{interest}}!!
+            </div>
             <button mat-raised-button matStepperNext>下一步</button>
         </mat-step>
-        <mat-step label="詳細問題" optional>
+        <mat-step label="詳細問題" optional formGroupName="mainQuestions" [stepControl]="surveyForm.get('mainQuestions')">
             <h4>主要問題內容</h4>
+            <div>
+                <mat-form-field>
+                    <input type="text" matInput placeholder="消費" >
+                    <mat-icon matPrefix>attach_money</mat-icon>
+                    <span matSuffix>台幣</span>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-checkbox formControlName="payForAll" [indeterminate]="indeterminateSelectedPayFor" (change)="checkAllChange($event)">全部</mat-checkbox>
+                <mat-checkbox formControlName="payForBook" (change)="payForChange($event)">書籍</mat-checkbox>
+                <mat-checkbox formControlName="payForMusic" (change)="payForChange($event)" labelPosition="after">音樂</mat-checkbox>
+                <mat-checkbox formControlName="payForMovie" (change)="payForChange($event)">電影</mat-checkbox>
+            </div>
+            <div>
+                <div>評價?</div>
+                <mat-radio-group formControlName="score">
+                    <mat-radio-button [value]="5">5</mat-radio-button>
+                    <mat-radio-button [value]="4">4</mat-radio-button>
+                    <mat-radio-button [value]="3">3</mat-radio-button>
+                    <mat-radio-button [value]="2">2</mat-radio-button>
+                    <mat-radio-button [value]="1">1</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <div>
+                <div>訂閱</div>
+                <mat-slide-toggle formControlName="subscribeAngular">Angular技巧全集</mat-slide-toggle>
+            </div>
             <button mat-raised-button matStepperPrevious>上一步</button>
             <button mat-raised-button matStepperNext>下一步</button>
         </mat-step>
-        <mat-step label="其他">
+        <mat-step label="其他" formGroupName="otherQuestions" [stepControl]="surveyForm.get('otherQuestions')">
             <h4>其他問題</h4>
+            <div>
+                <div>Red</div>
+                <mat-slider min="0" max="255" step="1" formControlName="red" invert [tickInterval]="50"></mat-slider>
+                <div>Green</div>
+                <mat-slider min="0" max="255" step="1" formControlName="green" thumbLabel></mat-slider>
+                <div>Blue</div>
+                <mat-slider min="0" max="255" step="1" formControlName="blue" vertical [tickInterval]="'auto'"></mat-slider>
+                <div>RGB: {{selectedColorRed}}, {{selectedColorGreen}}, {{selectedColorBlue}}</div>
+                <div style="width: 200px; height: 30px;" [ngStyle]="{background: selectedColorStyle}"></div>
+            </div>
             <button mat-raised-button matStepperPrevious>上一步</button>
         </mat-step>
     </mat-horizontal-stepper>
