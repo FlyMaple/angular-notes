@@ -4,6 +4,6 @@
     <input type="text" #searchBox (keyup)="searchHero(searchBox.value)">
 
     <ul>
-        <li *ngFor="let hero of heroes" routerLink="/hero/{{hero.id}}">{{ hero.name }}</li>
+        <li *ngFor="let hero of heroes$ | async" routerLink="/hero/{{hero.id}}">{{ hero.name }}</li>
     </ul>
 </div>

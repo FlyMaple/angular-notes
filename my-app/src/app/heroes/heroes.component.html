@@ -1,8 +1,10 @@
 <div>
     <ul class="heroes">
-        <li *ngFor="let hero of heroes" routerLink="/hero/{{hero.id}}">
-            <span class="badge">{{ hero.id }}</span> {{ hero.name }}
-            <span *ngIf="hero === selectedHero">(active)</span>
+        <li *ngFor="let hero of heroes">
+            <a routerLink="/hero/{{hero.id}}">
+                <span class="badge">{{ hero.id }}</span> {{ hero.name }}
+                <span *ngIf="hero === selectedHero">(active)</span>
+            </a>
             <button (click)="deleteHero(hero)">Delete</button>
         </li>
     </ul>

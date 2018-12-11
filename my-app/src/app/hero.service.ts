@@ -28,7 +28,7 @@ export class HeroService {
         return this.http
             .get<Hero[]>(`${this.getUrl('/api/heroes')}`)
             .pipe(
-                tap(heroes => console.log(`fetched heroes`)),
+                tap(heroes => this.log(`fetched heroes`)),
                 catchError(this.handleError<Hero[]>('getHeroes', []))
             );
     }
@@ -39,7 +39,7 @@ export class HeroService {
         return this.http
             .get<Hero>(`${this.getUrl('/api/hero')}/${id}`)
             .pipe(
-                tap(hero => console.log(`fetched hero id = ${id}`)),
+                tap(hero => this.log(`fetched hero id = ${id}`)),
                 catchError(this.handleError<Hero>('getHero'))
             );
     }
@@ -48,7 +48,7 @@ export class HeroService {
         return this.http
             .put<Hero>(`${this.getUrl('/api/hero')}/${hero.id}`, hero, httpOptions)
             .pipe(
-                tap(hero => console.log(`updated hero id = ${hero.id}`)),
+                tap(hero => this.log(`updated hero id = ${hero.id}`)),
                 catchError(this.handleError<Hero>('updateHero'))
             );
     }
@@ -57,7 +57,7 @@ export class HeroService {
         return this.http
             .post<Hero>(`${this.getUrl('/api/hero')}`, hero, httpOptions)
             .pipe(
-                tap((hero: Hero) => console.log(`added hero w/id = ${hero.id}`)),
+                tap((hero: Hero) => this.log(`added hero w/id = ${hero.id}`)),
                 catchError(this.handleError<Hero>('addHero'))
             );
     }
@@ -66,14 +66,14 @@ export class HeroService {
         return this.http
             .delete<Hero>(`${this.getUrl('/api/hero')}/${hero.id}`, httpOptions)
             .pipe(
-                tap(() => console.log(`deleted hero id = ${hero.id}`)),
+                tap(() => this.log(`deleted hero id = ${hero.id}`)),
                 catchError(this.handleError<Hero>('deleteHero'))
             );
     }
 
     searchHeroes(term: string): Observable<Hero[]> {
         if (!term.trim()) {
-            return of([]);
+            return of([] as Hero[]);
         }
 
         return this.http
@@ -83,7 +83,7 @@ export class HeroService {
                 }
             })
             .pipe(
-                tap((heroes: Hero[]) => console.log(`found heroes matching "${term}"`)),
+                tap((heroes: Hero[]) => this.log(`found heroes matching "${term}"`)),
                 catchError(this.handleError('searchHeroes', []))
             );
     }
@@ -95,9 +95,13 @@ export class HeroService {
 
     handleError<T>(operation = 'operation', result?: T) {
         return (err: any): Observable<T> => {
-            console.log(`${operation} failed: ${err.message}`);
+            this.log(`${operation} failed: ${err.message}`);
 
             return of(result as T);
         };
+    }
+
+    log(message: string): void {
+        this.messageService.add(message);
     }
 }
