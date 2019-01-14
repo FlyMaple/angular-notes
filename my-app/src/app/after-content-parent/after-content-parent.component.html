@@ -1,0 +1,16 @@
+<div>
+    <h2>After Content</h2>
+
+    <div>--- child content begins ---</div>
+    <button (click)="show=!show">Toggle</button>
+    <div *ngIf="show">
+        <app-after-content>
+            <app-child-content></app-child-content>
+        </app-after-content>
+    </div>
+    <div>--- child content ends ---</div>
+
+    <ul>
+        <li *ngFor="let message of messages">{{ message }}</li>
+    </ul>
+</div>

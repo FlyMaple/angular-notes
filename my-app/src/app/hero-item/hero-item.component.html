@@ -1,0 +1,7 @@
+<li>
+    <a routerLink="/hero/{{_hero.id}}">
+        <span class="badge">{{ _hero.id }}</span> {{ name }}
+        <span *ngIf="_hero === selectedHero">(active)</span>
+    </a>
+    <button (click)="deleteHero(_hero)">Delete</button>
+</li>

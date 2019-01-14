@@ -1,0 +1,10 @@
+<button (click)="toggleChild()">{{ hasChild ? 'Destroy' : 'Create' }} PeekABooComponent</button>
+<button [hidden]="!hasChild" (click)="updateHero()">Update Hero</button>
+
+<app-peek-a-boo *ngIf="hasChild" [name]="heroName"></app-peek-a-boo>
+
+<h2>Peek a boo ------</h2>
+<ul>
+    <li *ngFor="let msg of messages">{{ msg }}</li>
+</ul>
+<h2>------</h2>

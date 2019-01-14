@@ -1,0 +1,14 @@
+<div>
+    <h2>OnChanges</h2>
+
+    <div>
+        <label for="power">Power:</label>
+        <input type="text" id="power" [(ngModel)]="hero.power">
+        <label for="name">Hero.name:</label>
+        <input type="text" id="name" [(ngModel)]="hero.name">
+        <button (click)="update()">update</button>
+        <button (click)="resetLog()">Reset log</button>
+    </div>
+
+    <app-on-changes [hero]="hero" [power]="hero.power"></app-on-changes>
+</div>

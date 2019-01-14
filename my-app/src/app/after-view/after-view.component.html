@@ -1,0 +1,12 @@
+<div>
+    <h2>After View</h2>
+
+    <div>--- child view begins ---</div>
+    <button (click)="toggleChild()">Toggle Child</button>
+    <app-child-view *ngIf="showChild"></app-child-view>
+    <div>--- child view ends ---</div>
+
+    <ul>
+        <li *ngFor="let message of messages">{{ message }}</li>
+    </ul>
+</div>

@@ -1,0 +1,7 @@
+<div>
+    <h2 [ngStyle]="{'color': 'red'}">{{ this.major }}.{{ this.minor }}</h2>
+
+    <ul>
+        <li *ngFor="let log of logs">{{ log }}</li>
+    </ul>
+</div>

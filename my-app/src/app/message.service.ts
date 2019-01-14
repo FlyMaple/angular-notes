@@ -15,4 +15,12 @@ export class MessageService {
     clear(): void {
         this.messages = [];
     }
+
+    tick(): void {
+        setTimeout(() => {
+
+        }, 0);
+    }
+    // tick() { this.tick_then(() => { }); }
+    // tick_then(fn: () => any) { setTimeout(fn, 0); }
 }

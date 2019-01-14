@@ -1,0 +1,17 @@
+<div>
+    <h2>Spy Directive</h2>
+
+    <input type="text" [(ngModel)]="newName" (keyup.enter)="addHero()">
+    <button (click)="addHero()">Add hero</button>
+    <button (click)="resetHero()">Reset Heroes</button>
+
+    <ul>
+        <li *ngFor="let hero of heroes" appMySpy>{{ hero.name }}</li>
+    </ul>
+
+    <h2>Spy ------</h2>
+    <ul>
+        <li *ngFor="let msg of messages">{{ msg }}</li>
+    </ul>
+    <h2>------</h2>
+</div>
