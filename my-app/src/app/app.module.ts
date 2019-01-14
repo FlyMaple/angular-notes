@@ -34,6 +34,8 @@ import { VoteComponent } from './vote/vote.component';
 import { VoteTakerComponent } from './vote-taker/vote-taker.component';
 import { CountdownLocalVarParentComponent } from './countdown-local-var-parent/countdown-local-var-parent.component';
 import { CountdownTimerComponent } from './countdown-timer/countdown-timer.component';
+import { StyleComponent } from './style/style.component';
+import { DynamicComponentComponent } from './dynamic-component/dynamic-component.component';
 
 @NgModule({
     declarations: [
@@ -63,7 +65,9 @@ import { CountdownTimerComponent } from './countdown-timer/countdown-timer.compo
         VoteComponent,
         VoteTakerComponent,
         CountdownLocalVarParentComponent,
-        CountdownTimerComponent
+        CountdownTimerComponent,
+        StyleComponent,
+        DynamicComponentComponent,
     ],
     imports: [
         BrowserModule,

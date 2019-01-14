@@ -7,6 +7,8 @@ import { LifecycleHooksComponent } from './lifecycle-hooks/lifecycle-hooks.compo
 import { VersionParentComponent } from './version-parent/version-parent.component';
 import { VoteTakerComponent } from './vote-taker/vote-taker.component';
 import { CountdownLocalVarParentComponent } from './countdown-local-var-parent/countdown-local-var-parent.component';
+import { StyleComponent } from './style/style.component';
+import { DynamicComponentComponent } from './dynamic-component/dynamic-component.component';
 
 const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
@@ -16,7 +18,9 @@ const routes: Routes = [
     { path: 'lifecycle-hooks', component: LifecycleHooksComponent },
     { path: 'version', component: VersionParentComponent },
     { path: 'vote-taker', component: VoteTakerComponent },
-    { path: 'countdown-timer', component: CountdownLocalVarParentComponent }
+    { path: 'countdown-timer', component: CountdownLocalVarParentComponent },
+    { path: 'style', component: StyleComponent },
+    { path: 'dynamic-component', component: DynamicComponentComponent },
 ];
 
 @NgModule({
