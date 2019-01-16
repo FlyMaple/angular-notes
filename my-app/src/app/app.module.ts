@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -36,6 +36,19 @@ import { CountdownLocalVarParentComponent } from './countdown-local-var-parent/c
 import { CountdownTimerComponent } from './countdown-timer/countdown-timer.component';
 import { StyleComponent } from './style/style.component';
 import { DynamicComponentComponent } from './dynamic-component/dynamic-component.component';
+import { AdBannerComponent } from './ad-banner/ad-banner.component';
+import { HeroProfileComponent } from './hero-profile/hero-profile.component';
+import { HeroJobAdComponent } from './hero-job-ad/hero-job-ad.component';
+import { AdDirective } from './ad.directive';
+import { HighlightDirective } from './highlight.directive';
+import { DirectiveComponent } from './directive/directive.component';
+import { UnlessDirective } from './unless.directive';
+import { PipeComponent } from './pipe/pipe.component';
+import { YyyymmddPipe } from './yyyymmdd.pipe';
+import { TestPipe } from './test.pipe';
+import { FormsComponent } from './forms/forms.component';
+import { NameEditorComponent } from './name-editor/name-editor.component';
+import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
 
 @NgModule({
     declarations: [
@@ -68,16 +81,34 @@ import { DynamicComponentComponent } from './dynamic-component/dynamic-component
         CountdownTimerComponent,
         StyleComponent,
         DynamicComponentComponent,
+        AdBannerComponent,
+        HeroProfileComponent,
+        HeroJobAdComponent,
+        AdDirective,
+        HighlightDirective,
+        DirectiveComponent,
+        UnlessDirective,
+        PipeComponent,
+        YyyymmddPipe,
+        TestPipe,
+        FormsComponent,
+        NameEditorComponent,
+        ProfileEditorComponent,
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         FormsModule,
-        HttpClientModule
+        HttpClientModule,
+        ReactiveFormsModule
     ],
     providers: [
         HeroService,
         MessageService
+    ],
+    entryComponents: [
+        HeroProfileComponent,
+        HeroJobAdComponent
     ],
     bootstrap: [AppComponent]
 })

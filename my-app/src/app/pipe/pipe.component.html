@@ -1,0 +1,8 @@
+<div>
+    <h3>Pipe</h3>
+
+    <button (click)="add()">Add</button>
+    <div>
+        <div *ngFor="let item of items | test">{{ item }}</div>
+    </div>
+</div>

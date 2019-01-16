@@ -1,0 +1,22 @@
+<div>
+    <input type="radio" [(ngModel)]="color" value="#903aaa">#903aaa
+    <input type="radio" [(ngModel)]="color" value="#103aaa">#103aaa
+    <input type="radio" [(ngModel)]="color" value="#f03aaa">#f03aaa
+    <h4 appHighlight [defaultColor]="color">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum earum <ng-container>nesciunt</ng-container>, neque magni unde iusto sed sint illo accusantium debitis, laudantium velit natus id ad harum in fugiat nihil. Repellendus?</h4>
+    <h4 [appHighlight]="color">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum earum nesciunt, neque magni unde iusto sed sint illo accusantium debitis, laudantium velit natus id ad harum in fugiat nihil. Repellendus?</h4>
+    <hr>
+    <p appHighlight>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam minima quia ut similique consequuntur necessitatibus omnis odio numquam quasi. Quae architecto nobis minima magni ullam officia iure nulla illum corporis.</p>
+    <p appHighlight="red">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam minima quia ut similique consequuntur necessitatibus omnis odio numquam quasi. Quae architecto nobis minima magni ullam officia iure nulla illum corporis.</p>
+    <p appHighlight="{{parentColor}}">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam minima quia ut similique consequuntur necessitatibus omnis odio numquam quasi. Quae architecto nobis minima magni ullam officia iure nulla illum corporis.</p>
+    <p appHighlight defaultColor="blue">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam minima quia ut similique consequuntur necessitatibus omnis odio numquam quasi. Quae architecto nobis minima magni ullam officia iure nulla illum corporis.</p>
+    <p appHighlight [defaultColor]="parentColor">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam minima quia ut similique consequuntur necessitatibus omnis odio numquam quasi. Quae architecto nobis minima magni ullam officia iure nulla illum corporis.</p>
+    <hr>
+    <select name="" id="">
+        <ng-container  *ngFor="let item of items">
+            <option *ngIf="item!=='C'" [ngValue]="item">{{ item }}</option>
+        </ng-container>
+    </select>
+    <hr>
+    <button (click)="unless=!unless">Toggle</button>{{ unless }}
+    <h3 *appUnless="unless">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt quaerat labore tempora illo dolorum, voluptates placeat suscipit, praesentium odit dicta eligendi culpa neque accusantium veritatis porro! Accusantium, quibusdam. Perferendis, quis!</h3>
+</div>
