@@ -1,0 +1,6 @@
+{
+    "/nebula": {
+        "target": "https://ebetaccapi.nebula.zyxel.com",
+        "secure": false
+    }
+}

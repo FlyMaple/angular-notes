@@ -1,0 +1,11 @@
+<div>
+    <h4>Contact</h4>
+
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+        <input type="text" name="name" [(ngModel)]="contact.name">
+        <button type="submit">Save</button>
+        <button type="button" (click)="next()">Next</button>
+        <button type="button" (click)="new()">New</button>
+    </form>
+
+</div>

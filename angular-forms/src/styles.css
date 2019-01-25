@@ -1,0 +1,7 @@
+input[type=text][required].ng-invalid {
+    border-left: 5px solid #f00;
+}
+
+input[type=text][required].ng-valid {
+    border-left: 5px solid green;
+}

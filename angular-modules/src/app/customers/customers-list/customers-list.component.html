@@ -1,0 +1,7 @@
+<div>
+    <h3>Customer list</h3>
+    <div>{{ userName }}</div>
+    <ul>
+        <li *ngFor="let customer of customers$ | async"><a [routerLink]="[ customer.id ]">{{ customer.name }}</a></li>
+    </ul>
+</div>

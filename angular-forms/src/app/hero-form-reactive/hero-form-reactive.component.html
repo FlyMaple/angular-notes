@@ -1,0 +1,51 @@
+<div class="container">
+    <div>
+        <h1>Hero Form Reactive</h1>
+        <form [formGroup]="heroForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" formControlName="name">
+                <div class="alert alert-danger">
+                    Name is required
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="alterEgo">Alter Ego</label>
+                <input type="text" class="form-control" id="alterEgo" name="alterEgo" formControlName="alterEgo">
+            </div>
+
+            <div class="form-group">
+                <label for="power">Hero Power</label>
+                <select class="form-control" id="power" name="power" formControlName="power">
+                    <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+                </select>
+            </div>
+            <button type="button" class="btn btn-default">New Hero</button>
+            <button type="submit" class="btn btn-success">Submit</button>
+
+        </form>
+    </div>
+
+    <p>
+        Hero Form values: {{ heroForm.value | json }}
+    </p>
+    <p>
+        Hero Form valid: {{ heroForm.valid }}
+    </p>
+    <p>
+        Hero Form invalid: {{ heroForm.invalid }}
+    </p>
+    <p>
+        Hero Form status: {{ heroForm.status }}
+    </p>
+    <p>
+        Hero Form errors: {{ heroForm.errors | json }}
+    </p>
+    <p>
+        name errors: {{ name.errors | json }}
+    </p>
+    <p>
+        power errors: {{ power.errors | json }}
+    </p>
+</div>

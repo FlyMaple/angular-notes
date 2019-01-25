@@ -1,0 +1,28 @@
+<h1>Application</h1>
+
+<label for="heroes">
+    <input type="checkbox" id="heroes" [(ngModel)]="showHeroes"> Heroes
+</label>
+
+<label for="config">
+    <input type="checkbox" id="config" [(ngModel)]="showConfig"> Config
+</label>
+
+<label for="downloader">
+    <input type="checkbox" id="downloader" [(ngModel)]="showDownloader"> Downloader
+</label>
+
+<label for="uploader">
+    <input type="checkbox" id="uploader" [(ngModel)]="showUploader"> Uploader
+</label>
+
+<label for="search">
+    <input type="checkbox" id="search" [(ngModel)]="showSearch"> Search
+</label>
+
+<app-heroes *ngIf="showHeroes"></app-heroes>
+<app-config *ngIf="showConfig"></app-config>
+<app-downloader *ngIf="showDownloader"></app-downloader>
+<app-uploader *ngIf="showUploader"></app-uploader>
+<app-package-search *ngIf="showSearch"></app-package-search>
+<app-messages></app-messages>

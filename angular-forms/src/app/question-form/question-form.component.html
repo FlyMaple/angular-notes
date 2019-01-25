@@ -1,0 +1,9 @@
+<div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <app-question *ngFor="let question of questions" [question]="question" [form]="form"></app-question>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    Form values: {{ form.value | json }}
+</div>
